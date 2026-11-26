@@ -17,7 +17,7 @@ interface OfferSectionProps {
 export default function OfferSection({ 
   price = "6,90", 
   installmentText = "",
-  checkoutUrl = "https://pay.hotmart.com/G108670093O?checkoutMode=10"
+  checkoutUrl = "https://pay.hotmart.com/J108675926L?checkoutMode=10"
 }: OfferSectionProps) {
 
   const benefits = [

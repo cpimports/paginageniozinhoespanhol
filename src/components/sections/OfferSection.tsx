@@ -133,16 +133,17 @@ export default function OfferSection({
                   </li>
               </ul>
 
-              <div className="text-center bg-black/20 backdrop-blur-sm p-6 rounded-lg border border-gray-700 shadow-inner space-y-4 my-8">
-                  <p className="text-lg uppercase tracking-wider font-semibold text-white">OFERTA IRRESISTIBLE - ACCESO COMPLETO POR:</p>
-                  <div className="mb-2">
-                    <span className="text-xl text-gray-400 line-through">De: US$ 97,00</span>
+              <div className="text-center bg-black/20 backdrop-blur-sm p-4 sm:p-6 rounded-lg border border-gray-700 shadow-inner space-y-3 my-8">
+                  <p className="text-sm sm:text-base md:text-lg uppercase tracking-wider font-semibold text-white">OFERTA IRRESISTIBLE - ACCESO COMPLETO POR:</p>
+                  <div className="mb-1">
+                    <span className="text-base sm:text-xl text-gray-400 line-through">De: US$ 97,00</span>
                   </div>
-                  <div className="my-2 flex items-baseline justify-center gap-2">
-                    <span className="text-6xl sm:text-7xl font-extrabold text-yellow-400" style={{ textShadow: '0 3px 8px rgba(253, 224, 71, 0.2)' }}>US$ {price}</span>
+                  <div className="my-2 flex items-baseline justify-center gap-1.5 sm:gap-2 whitespace-nowrap">
+                    <span className="text-2xl sm:text-4xl md:text-5xl font-black text-yellow-400">US$</span>
+                    <span className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-yellow-400 tracking-tight" style={{ textShadow: '0 3px 8px rgba(253, 224, 71, 0.2)' }}>{price}</span>
                   </div>
-                  {installmentText && <div className="text-lg text-gray-200 font-semibold">{installmentText}</div>}
-                  <p className="text-sm text-gray-300 font-medium">(Pago Único. ¡Acceso INMEDIATO y DE POR VIDA!)</p>
+                  {installmentText && <div className="text-base sm:text-lg text-gray-200 font-semibold">{installmentText}</div>}
+                  <p className="text-xs sm:text-sm text-gray-300 font-medium">(Pago Único. ¡Acceso INMEDIATO y DE POR VIDA!)</p>
               </div>
               
               <div className="text-center mt-8">

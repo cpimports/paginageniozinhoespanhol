@@ -166,9 +166,9 @@ export default function OfferSection({
               <p className="text-sm font-semibold text-slate-400 line-through sm:text-base">
                 De: US$ 97,00 por solo
               </p>
-              <div className="mt-2 flex items-baseline justify-center gap-1 font-display">
+              <div className="mt-2 flex items-baseline justify-center gap-1 font-display whitespace-nowrap">
                 <span className="text-2xl font-black text-marker sm:text-3xl">US$</span>
-                <span className="text-6xl font-black leading-none tracking-tight text-marker sm:text-7xl">
+                <span className="text-5xl font-black leading-none tracking-tight text-marker sm:text-6xl md:text-7xl">
                   {price}
                 </span>
               </div>

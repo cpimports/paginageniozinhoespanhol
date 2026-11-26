@@ -3,85 +3,8 @@
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect } from 'react';
-
-const NewVslPlayer = () => {
-  useEffect(() => {
-    const scriptId = 'vturb-player-script-68a677e85a4844a26844462d';
-    if (!document.getElementById(scriptId)) {
-      const s = document.createElement('script');
-      s.id = scriptId;
-      s.src = 'https://scripts.converteai.net/f304b502-422a-4d15-8f6c-5e42de7baf1b/players/68a677e85a4844a26844462d/v4/player.js';
-      s.async = true;
-      document.head.appendChild(s);
-    }
-  }, []);
-
-  return (
-    <div
-      dangerouslySetInnerHTML={{
-        __html: `
-          <style>
-            vturb-smartplayer [slot="preload"],
-            vturb-smartplayer .preload,
-            vturb-smartplayer .preload--netflix,
-            vturb-smartplayer .vt-loading-wrapper,
-            .vt-loading-wrapper,
-            .preload--netflix {
-              display: none !important;
-              opacity: 0 !important;
-              visibility: hidden !important;
-              pointer-events: none !important;
-            }
-          </style>
-          <vturb-smartplayer id="vid-68a677e85a4844a26844462d" style="display: block; margin: 0 auto; width: 100%;">
-            <div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 56.48535564853556% 0 0; z-index: 0; background: url('https://images.converteai.net/f304b502-422a-4d15-8f6c-5e42de7baf1b/players/68a677e85a4844a26844462d/thumbnail.jpg') center center / cover no-repeat;">
-              <img 
-                src="https://images.converteai.net/f304b502-422a-4d15-8f6c-5e42de7baf1b/players/68a677e85a4844a26844462d/thumbnail.jpg" 
-                alt="Vídeo de apresentação" 
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" 
-                loading="eager"
-                fetchpriority="high"
-              />
-              <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; pointer-events: none;">
-                <div style="background-color: rgba(25, 148, 0, 0.93); border: 3px solid #ffffff; border-radius: 14px; padding: 12px 24px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); max-width: 90%;">
-                  <p style="color: #ffffff; font-weight: 800; font-size: 16px; margin: 0; line-height: 1.2; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">ENSINE DE FORMA LÚDICA</p>
-                  <div style="margin: 8px auto; width: 44px; height: 32px;">
-                    <svg viewBox="0 0 47 33" fill="#ffffff" style="width: 100%; height: 100%;">
-                      <path d="M20.921,20.366h-6.423c-0.553,0-1,0.508-1,1.135v8.229c0,0.627,0.447,1.135,1,1.135h7.375l6.25,5.875V24.96L20.921,20.366z"></path>
-                      <path d="M28.124,20.215l-3.489-2.225V14.991l3.489,5.224z"></path>
-                    </svg>
-                  </div>
-                  <p style="color: #ffffff; font-weight: 800; font-size: 15px; margin: 0; line-height: 1.2; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">CLIQUE PARA ASSISTIR...</p>
-                </div>
-              </div>
-            </div>
-          </vturb-smartplayer>
-          <script>
-            (function() {
-              var p = document.getElementById("vid-68a677e85a4844a26844462d");
-              if (p) {
-                var desc = Object.getOwnPropertyDescriptor(Element.prototype, 'innerHTML');
-                Object.defineProperty(p, 'innerHTML', {
-                  set: function(val) {
-                    if (typeof val === 'string' && val.indexOf('preload--netflix') !== -1) {
-                      return;
-                    }
-                    return desc.set.call(this, val);
-                  },
-                  get: function() {
-                    return desc.get.call(this);
-                  },
-                  configurable: true
-                });
-              }
-            })();
-          </script>
-        `,
-      }}
-    />
-  );
-};
+import React from 'react';
+import VslPlayer from '@/components/shared/VslPlayer';
 
 export default function HeroSection() {
 
@@ -114,29 +37,28 @@ export default function HeroSection() {
         <div className="absolute bottom-[20%] right-[10%] w-0.5 h-0.5 bg-sky-200 rounded-full filter blur-[0.5px] animate-twinkle" style={{ animationDelay: '3.2s' }}></div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 pt-8 sm:pt-12">
         <div className="mb-8">
           <Image
             src="/images/logo.webp"
-            alt="Logo Gêniozinho em Ação"
-            data-ai-hint="logo brain lightbulb"
-            width={120}
-            height={101}
-            className="mx-auto"
+            alt="Logo Geniecitos en Acción"
+            width={150}
+            height={100}
+            className="mx-auto h-auto w-auto max-h-[100px]"
             priority
           />
         </div>
         <h1 className="font-merriweather text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white">
-          <span className="text-yellow-400">+1700</span> Atividades Lúdicas e Adaptadas para <span className="text-yellow-400">Crianças Autistas</span>
+          <span className="text-yellow-400">+1500</span> Actividades Lúdicas y Adaptadas para <span className="text-yellow-400">Niños con Autismo</span>
         </h1>
         <div className="mt-6 max-w-3xl mx-auto text-sm md:text-base text-gray-300 px-4 sm:px-0 text-center">
-            <p className="font-semibold text-sky-200 text-base md:text-lg">Economize horas de preparo com atividades prontas, validadas por pedagogos e psicólogos, que estimulam o foco, a linguagem, a socialização e o desenvolvimento cognitivo dos seus alunos com TEA.</p>
+            <p className="font-semibold text-sky-200 text-base md:text-lg">Ahorre horas de preparación con actividades listas, validadas por pedagogos y psicólogos, que estimulan la concentración, el lenguaje, la socialización y el desarrollo cognitivo de sus alumnos e hijos con TEA.</p>
         </div>
 
         {/* Bloco da VSL sem atraso - renderização instantânea no quadro 0 */}
         <div className="mt-8 max-w-3xl mx-auto">
             <div className="rounded-lg overflow-hidden shadow-2xl shadow-sky-400/20">
-                 <NewVslPlayer />
+                 <VslPlayer />
             </div>
         </div>
         
@@ -147,22 +69,22 @@ export default function HeroSection() {
             className="shadow-lg hover:shadow-xl bg-yellow-400 hover:bg-yellow-500 text-black font-semibold animate-pulse-yellow-cta transition-shadow"
           >
             <a href="#kit-description">
-              GARANTIR MEU KIT COM DESCONTO
+              ¡OBTENER MI KIT CON DESCUENTO!
             </a>
           </Button>
           <p className="mt-2 text-xs text-gray-400">
-            REVISADO POR PEDAGOGOS E PSICÓLOGOS
+            REVISADO POR PEDAGOGOS Y PSICÓLOGOS
           </p>
           <div className="mt-2">
             <Image
-                src="/images/payment-methods.webp"
-                alt="Métodos de pagamento aceitos"
-                data-ai-hint="payment methods"
-                width={250}
-                height={25}
-                className="object-contain"
+                src="/images/security-badges-espanhol.webp"
+                alt="Compra segura, Satisfacción garantizada, Privacidad protegida"
+                data-ai-hint="security badges"
+                width={320}
+                height={100}
+                className="object-contain h-auto max-w-[280px] sm:max-w-[320px]"
                 loading="lazy"
-                sizes="250px"
+                sizes="(max-width: 640px) 280px, 320px"
               />
           </div>
         </div>

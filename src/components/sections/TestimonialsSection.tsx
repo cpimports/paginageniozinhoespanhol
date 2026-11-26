@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -18,14 +18,9 @@ import { cn } from '@/lib/utils';
 import DynamicCounterBanner from '@/components/shared/DynamicCounterBanner';
 
 const hostedVideos = [
-    { videoUrl: "/videos/DEPOIMENTO-PROFESSORA.mp4", title: "Depoimento Professora" },
-    { videoUrl: "/videos/Depoimento Professora Nilva.mp4", title: "Depoimento Professora Nilva" },
-    { videoUrl: "/videos/DEPOIMENTO-ELIANE.mp4", title: "Depoimento Eliane" },
-    { videoUrl: "/videos/DEPOIMENTO-THIAGO.mp4", title: "Depoimento Thiago" },
-    { videoUrl: "/videos/DEPOIMENTO-CAMILA.mp4", title: "Depoimento Camila" },
-    { videoUrl: "/videos/DEPOIMENTO-SILVANA.mp4", title: "Depoimento Silvana" },
-    { videoUrl: "/videos/DEPOIMENTO-GABRIELE.mp4", title: "Depoimento Gabriele" },
-    { videoUrl: "/videos/DEPOIMENTO-MARIA.mp4", title: "Depoimento Maria" },
+    { videoUrl: "/videos/testimonio-1.mp4", posterUrl: "/videos/poster-1.webp", title: "Testimonio 1 - Experiencia con el Kit" },
+    { videoUrl: "/videos/testimonio-2.mp4", posterUrl: "/videos/poster-2.webp", title: "Testimonio 2 - Docente en Aula" },
+    { videoUrl: "/videos/testimonio-4.mp4", posterUrl: "/videos/poster-4.webp", title: "Testimonio 3 - Familia y Aprendizaje" },
 ];
 
 const commentsData = [
@@ -35,13 +30,13 @@ const commentsData = [
     avatarFallback: 'CM',
     name: 'Carla Monteiro',
     time: '5h',
-    text: 'Sempre perdi horas preparando atividades inclusivas, mas agora tudo já está pronto e organizado. Essa plataforma simplesmente mudou minha rotina em sala de aula e facilitou demais meu planejamento, amei 🥰',
+    text: 'Siempre perdía horas preparando actividades adaptadas, pero ahora todo está listo y perfectamente organizado. Esta plataforma transformó por completo mi rutina en el aula y facilitó muchísimo mi planificación, me encantó 🥰',
     reactions: { like: 122, love: 15, haha: 2 },
     reply: {
       avatarUrl: '/images/logo.webp',
-      name: 'Gêniozinho em Ação',
+      name: 'Geniecitos en Acción',
       time: '4h',
-      text: 'Que incrível ler isso Carla! 💙 Nosso propósito é exatamente facilitar a rotina dos professores e tornar o aprendizado mais inclusivo e leve.',
+      text: '¡Qué alegría leer esto, Carla! 💙 Nuestro propósito es precisamente facilitar la labor docente y hacer el aprendizaje mucho más inclusivo, ameno y efectivo.',
     },
   },
   {
@@ -50,7 +45,7 @@ const commentsData = [
     avatarFallback: 'VS',
     name: 'Vanessa Santos',
     time: '2h',
-    text: 'Sou professora há 12 anos e nunca encontrei um material tão completo e adaptado para crianças autistas! A variedade das atividades lúdicas é incrível, consigo engajar meus alunos de uma forma que antes era muito difícil.',
+    text: '¡Soy docente desde hace 12 años y nunca encontré un material tan completo y adaptado para niños con autismo! La variedad de actividades lúdicas es increíble, logro captar el interés de mis alumnos como antes era muy difícil.',
     reactions: { like: 89, love: 5 },
   },
   {
@@ -59,13 +54,13 @@ const commentsData = [
     avatarFallback: 'AF',
     name: 'André Ferreira',
     time: '1d',
-    text: 'Como terapeuta, sempre procuro materiais que unam didática com acessibilidade. O Gêniozinho em Ação entrega isso com excelência. Os pais dos meus pacientes amaram poder aplicar em casa também.',
+    text: 'Como terapeuta, siempre busco materiales que unan pedagogía con accesibilidad real. Geniecitos en Acción cumple con creces. Las familias de mis pacientes están encantadas de poder aplicarlo también en casa.',
     reactions: { like: 256, love: 30, haha: 1 },
     reply: {
       avatarUrl: '/images/logo.webp',
-      name: 'Gêniozinho em Ação',
+      name: 'Geniecitos en Acción',
       time: '23h',
-      text: 'André, seu feedback é muito importante para nós! Saber que o material está sendo validado por profissionais como você nos dá a certeza de que estamos no caminho certo. Obrigado!',
+      text: '¡Muchas gracias por tus palabras, André! Saber que el material es valorado y respaldado por profesionales como tú nos confirma que estamos en el camino correcto. ¡Un abrazo!',
     },
   },
   {
@@ -74,26 +69,54 @@ const commentsData = [
     avatarFallback: 'RT',
     name: 'Raquel Teodoro',
     time: '3d',
-    text: 'Sou mãe da Manoela, ela é autista nível 2 e sei o quanto é difícil ver outras crianças avançando enquanto minha filha enfrenta mais obstáculo. O Gêniozinho em Ação trouxe leveza para nossa rotina, fazemos uma atividade por dia e já sentimos diferença. É incrível!',
+    text: 'Soy mamá de Manoela, ella tiene autismo grado 2 y sé lo difícil que es ver a otros niños avanzar mientras mi hija enfrenta mayores retos. Geniecitos en Acción trajo tranquilidad a nuestro hogar: hacemos una actividad al día y los avances se notan. ¡Es maravilloso!',
     reactions: { like: 412, love: 55 },
   },
 ];
 
 
-// Video player simples com preload="metadata"
-const VideoFacade = ({ title, videoUrl }: { title: string; videoUrl: string }) => {
+// Video player com capa (poster) de carregamento instantâneo
+const VideoFacade = ({ title, videoUrl, posterUrl }: { title: string; videoUrl: string; posterUrl: string }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handlePlay = () => {
+    setIsPlaying(true);
+    if (videoRef.current) {
+      videoRef.current.play();
+    }
+  };
+
   return (
-    <div className="relative aspect-[9/16] w-full max-w-[280px] mx-auto bg-slate-900/50 rounded-xl overflow-hidden shadow-2xl shadow-sky-400/20">
-       <video
-            controls
-            className="w-full h-full object-cover"
-            preload="metadata"
-            src={`${videoUrl}#t=0.1`}
-            playsInline
-            muted
+    <div className="relative aspect-[9/16] w-full max-w-[280px] mx-auto bg-slate-900 rounded-2xl overflow-hidden shadow-2xl shadow-sky-400/20 border-2 border-white/20 group">
+      <video
+        ref={videoRef}
+        controls={isPlaying}
+        poster={posterUrl}
+        preload="metadata"
+        src={videoUrl}
+        playsInline
+        className="w-full h-full object-cover"
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+      >
+        Tu navegador no soporta la etiqueta de video.
+      </video>
+
+      {!isPlaying && (
+        <button
+          type="button"
+          onClick={handlePlay}
+          aria-label={`Reproducir ${title}`}
+          className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors cursor-pointer group"
         >
-            Seu navegador não suporta a tag de vídeo.
-        </video>
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-primary/90 text-white flex items-center justify-center shadow-2xl transition-transform transform group-hover:scale-110 border-2 border-white/80">
+            <svg className="w-8 h-8 sm:w-10 sm:h-10 ml-1 fill-white" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+        </button>
+      )}
     </div>
   );
 };
@@ -121,7 +144,7 @@ const FacebookComment = ({ comment }: { comment: typeof commentsData[0] }) => {
           )}
         </div>
         <div className="flex items-center space-x-3 text-xs text-gray-400 mt-1 px-3">
-          <button className="font-semibold hover:underline">Curtir</button>
+          <button className="font-semibold hover:underline">Me gusta</button>
           <button className="font-semibold hover:underline">Responder</button>
           <span>{comment.time}</span>
         </div>
@@ -138,7 +161,7 @@ const FacebookComment = ({ comment }: { comment: typeof commentsData[0] }) => {
                 <p className="text-gray-200 text-sm">{comment.reply.text}</p>
               </div>
               <div className="flex items-center space-x-3 text-xs text-gray-400 mt-1 px-3">
-                <button className="font-semibold hover:underline">Curtir</button>
+                <button className="font-semibold hover:underline">Me gusta</button>
                 <button className="font-semibold hover:underline">Responder</button>
                 <span>{comment.reply.time}</span>
               </div>
@@ -155,6 +178,24 @@ export default function TestimonialsSection() {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
+  const [loadVideos, setLoadVideos] = useState(false);
+  const sectionRef = React.useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setLoadVideos(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '300px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!api) {
@@ -180,7 +221,7 @@ export default function TestimonialsSection() {
   }, [api]);
 
   return (
-    <section id="depoimentos" className="py-16 md:py-24 bg-gradient-to-br from-indigo-800 to-slate-900 relative overflow-hidden">
+    <section ref={sectionRef} id="testimonios" className="py-16 md:py-24 bg-gradient-to-br from-indigo-800 to-slate-900 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 opacity-10 filter blur-3xl pointer-events-none">
         <div className="absolute top-[-15%] left-[-20%] w-[500px] h-[300px] bg-[radial-gradient(ellipse_at_center,theme(colors.sky.400)_0%,transparent_70%)] rounded-full animate-cloud-drift-slow"></div>
@@ -210,10 +251,10 @@ export default function TestimonialsSection() {
         
         <div className="text-center mb-12">
           <h2 className="font-merriweather text-3xl sm:text-4xl font-semibold text-white mb-4 drop-shadow-md">
-            Depoimentos reais sobre o Gêniozinho em Ação!
+            ¡Testimonios reales sobre Geniecitos en Acción!
           </h2>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-            Descubra como o Gêniozinho em Ação está facilitando o trabalho dos professores e acelerando o aprendizado das crianças autistas.
+            Descubre cómo Geniecitos en Acción está facilitando el trabajo de docentes y familias, acelerando el aprendizaje de niños con autismo.
           </p>
            <div className="mt-8">
             <DynamicCounterBanner />
@@ -233,34 +274,34 @@ export default function TestimonialsSection() {
               {hostedVideos.map((video, index) => (
                 <CarouselItem key={index} className="sm:basis-1/2 md:basis-1/3">
                   <div className="p-1">
-                    <VideoFacade title={video.title} videoUrl={video.videoUrl} />
+                    <VideoFacade title={video.title} videoUrl={video.videoUrl} posterUrl={video.posterUrl} />
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious aria-label="Slide anterior" className="text-white bg-primary/50 hover:bg-primary/70 border-0 disabled:bg-slate-700/30 disabled:text-slate-400" />
-            <CarouselNext aria-label="Próximo slide" className="text-white bg-primary/50 hover:bg-primary/70 border-0 disabled:bg-slate-700/30 disabled:text-slate-400" />
+            <CarouselPrevious aria-label="Diapositiva anterior" className="text-white bg-primary/50 hover:bg-primary/70 border-0 disabled:bg-slate-700/30 disabled:text-slate-400" />
+            <CarouselNext aria-label="Próxima diapositiva" className="text-white bg-primary/50 hover:bg-primary/70 border-0 disabled:bg-slate-700/30 disabled:text-slate-400" />
           </Carousel>
-          {api && (
-            <div className="flex justify-center items-center space-x-2 mt-4 py-2">
-              {Array.from({ length: count }).map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleDotClick(index)}
-                  className={cn(
-                    "h-2.5 w-2.5 rounded-full transition-all duration-150 ease-in-out",
-                    current === index ? "bg-white scale-125" : "bg-white/40 hover:bg-white/70"
-                  )}
-                  aria-label={`Ir para slide ${index + 1}`}
-                />
-              ))}
-            </div>
-          )}
+          <div className="flex justify-center items-center space-x-3 mt-6 py-2">
+            {Array.from({ length: 3 }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => handleDotClick(index)}
+                className={cn(
+                  "h-3 rounded-full transition-all duration-300 ease-in-out cursor-pointer",
+                  current === index 
+                    ? "w-8 bg-yellow-400 shadow-lg shadow-yellow-400/50" 
+                    : "w-3 bg-white/40 hover:bg-white/70"
+                )}
+                aria-label={`Ir al testimonio ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
         
         <div className="max-w-2xl mx-auto mt-16">
           <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-slate-700">
-            <h3 className="text-xl font-bold text-white text-center mb-6">Comentários de Clientes Satisfeitos</h3>
+            <h3 className="text-xl font-bold text-white text-center mb-6">Comentarios de Clientes Satisfechos</h3>
             <div className="space-y-6">
               {commentsData.map((comment) => (
                 <FacebookComment key={comment.id} comment={comment} />
@@ -268,7 +309,7 @@ export default function TestimonialsSection() {
             </div>
             <div className="text-center text-gray-400 mt-8 pt-4 border-t border-slate-700">
               <p className="text-sm font-semibold hover:text-white transition-colors cursor-pointer">
-                e mais 3.251 comentários...
+                y más de 3.251 comentarios...
               </p>
             </div>
           </div>

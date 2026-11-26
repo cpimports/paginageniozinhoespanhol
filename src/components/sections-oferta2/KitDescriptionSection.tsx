@@ -24,9 +24,9 @@ const activityImages = [
 ];
 
 const places = [
-  { icon: School, label: 'Na escola' },
-  { icon: Home, label: 'Em casa' },
-  { icon: Stethoscope, label: 'No consultório' },
+  { icon: School, label: 'En la escuela' },
+  { icon: Home, label: 'En casa' },
+  { icon: Stethoscope, label: 'En el consultorio' },
 ];
 
 export default function KitDescriptionSection() {
@@ -52,17 +52,17 @@ export default function KitDescriptionSection() {
         <SectionHeading
           title={
             <>
-              O Kit que estimula o <span className="text-sky-600 font-black">desenvolvimento das crianças autistas</span> e
-              facilita sua rotina em sala de aula
+              El Kit que estimula el <span className="text-sky-600 font-black">desarrollo de niños con autismo</span> y
+              facilita tu rutina diaria
             </>
           }
-          subtitle="Mais de 1500 atividades inclusivas e adaptadas para crianças autistas, criadas para estimular o foco, a linguagem, a interação social e o desenvolvimento cognitivo."
+          subtitle="Más de 1500 actividades lúdicas e inclusivas para niños con autismo, creadas para estimular la concentración, el lenguaje, la interacción social y el desarrollo cognitivo."
         />
 
         <div className="mx-auto -mt-6 mb-10 flex max-w-2xl flex-col items-center gap-4 text-center">
           <p className="text-ink-soft">
-            O material é 100% digital, disponível na nossa plataforma em PDF pronto para imprimir, para você usar
-            imediatamente em casa, na escola ou no consultório.
+            El material es 100% digital, disponible en nuestra plataforma en PDF listo para imprimir y usar
+            de inmediato en casa, en la escuela o en el consultorio.
           </p>
           <div className="flex flex-wrap justify-center gap-2">
             {places.map(({ icon: Icon, label }) => (
@@ -79,15 +79,15 @@ export default function KitDescriptionSection() {
 
         <div>
           <h3 className="mx-auto mb-6 sm:mb-8 max-w-lg text-center font-display text-lg font-extrabold leading-snug tracking-tight text-ink sm:text-xl md:text-2xl">
-            Veja algumas das atividades <br />
-            que estão <span className="text-sky-600">no kit</span>
+            Mira algunas de las actividades <br />
+            que incluye <span className="text-sky-600">el kit</span>
           </h3>
 
           {/* Carrossel contínuo interativo: arrastável com dedo no celular e mouse no computador */}
           <div
             ref={emblaRef}
             className="cursor-grab active:cursor-grabbing overflow-hidden py-3 select-none"
-            aria-label="Carrossel de prévia das atividades"
+            aria-label="Carrusel de vista previa de actividades"
           >
             <div className="flex touch-pan-y gap-4 sm:gap-5">
               {activityImages.map((src, index) => (
@@ -95,10 +95,10 @@ export default function KitDescriptionSection() {
                   key={`${src}-${index}`}
                   className="shrink-0 overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-2.5 shadow-sm shadow-slate-900/5 transition-transform duration-200 hover:-translate-y-1 hover:shadow-md"
                 >
-                  <div className="relative aspect-[3/4] w-[210px] overflow-hidden rounded-xl bg-slate-100 sm:w-[260px] md:w-[290px]">
+                  <div className="relative aspect-[4/5] w-[210px] overflow-hidden rounded-xl bg-slate-100 sm:w-[260px] md:w-[290px]">
                     <Image
                       src={src}
-                      alt="Exemplo de atividade inclusiva"
+                      alt="Ejemplo de actividad adaptada"
                       fill
                       className="object-cover pointer-events-none select-none"
                       sizes="(max-width: 640px) 210px, (max-width: 768px) 260px, 290px"
@@ -112,15 +112,15 @@ export default function KitDescriptionSection() {
           </div>
 
           <p className="mx-auto mt-8 max-w-xl text-center text-ink-soft">
-            Essas são apenas algumas das{' '}
-            <strong className="text-ink">mais de 1500 atividades exclusivas</strong> que você recebe na Plataforma
-            Gêniozinho em Ação!
+            ¡Estas son solo algunas de las{' '}
+            <strong className="text-ink">más de 1500 actividades exclusivas</strong> que recibes en la Plataforma
+            Geniecitos en Acción!
           </p>
         </div>
 
         <div className="mt-10 flex justify-center">
           <CtaButton href="#oferta-especial" size="lg" pulse>
-            Quero acessar o material agora!
+            ¡Quiero acceder al material ahora!
           </CtaButton>
         </div>
       </div>

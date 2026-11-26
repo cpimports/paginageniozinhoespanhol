@@ -11,24 +11,24 @@ interface OfferSectionProps {
 }
 
 const mainItems = [
-  '+1500 Atividades Lúdicas e Adaptadas para Autistas',
-  'Acesso Imediato e Vitalício à Plataforma com todo Material',
-  'Tranquilidade e Suporte para Você',
+  '+1500 Actividades Lúdicas y Adaptadas para Niños con Autismo',
+  'Acceso Inmediato y De Por Vida a la Plataforma con Todo el Material',
+  'Tranquilidad y Acompañamiento para Ti',
 ];
 
 const bonusItems = [
-  'Mega Pacote de +1000 Moldes de EVA',
-  'Kit de Medalhas de Reconhecimento',
-  '+10 Jogos Inclusivos e Testados',
-  'Guia de Adaptação de Atividades para Autistas',
+  'Mega Paquete de +1,000 Moldes de Goma EVA',
+  'Kit de Medallas de Reconocimiento',
+  '+10 Juegos Inclusivos y Comprobados',
+  'Guía de Adaptación de Actividades para Autistas',
 ];
 
-const lastBenefit = '+ 8 SUPER BÔNUS';
+const lastBenefit = '+ 8 SÚPER BONOS';
 
 const secureItems = [
   { icon: ShieldCheck, label: 'Compra Segura' },
-  { icon: Lock, label: 'Privacidade' },
-  { icon: CreditCard, label: 'Pagamento' },
+  { icon: Lock, label: 'Privacidad' },
+  { icon: CreditCard, label: 'Pago Seguro' },
 ];
 
 const AnimatedClock = ({ className = 'h-5 w-5' }: { className?: string }) => (
@@ -68,8 +68,8 @@ const AnimatedClock = ({ className = 'h-5 w-5' }: { className?: string }) => (
 );
 
 export default function OfferSection({
-  price = '19,76',
-  installmentText = 'ou 4x de R$5,66',
+  price = '6,90',
+  installmentText = '',
   checkoutUrl = 'https://loja.geniozinhoemacao.com.br/checkout/v4/WbE0rP04SZDO0RPFaY8D',
 }: OfferSectionProps) {
   return (
@@ -80,10 +80,10 @@ export default function OfferSection({
             <span className="flex flex-col items-center gap-2 sm:gap-3">
               <span className="inline-flex items-center gap-2.5 rounded-full border-2 border-coral/30 bg-coral/10 px-4 py-1.5 text-sm font-black uppercase tracking-wider text-coral shadow-2xs sm:px-5 sm:py-2 sm:text-base md:text-lg">
                 <AnimatedClock className="h-5 w-5 shrink-0 text-coral sm:h-6 sm:w-6" />
-                Última Chance
+                Última Oportunidad
               </span>
               <span className="text-xl font-extrabold leading-snug text-ink sm:text-2xl md:text-[1.75rem]">
-                Condição Especial por Tempo Limitado
+                Condición Especial por Tiempo Limitado
               </span>
             </span>
           }
@@ -101,7 +101,7 @@ export default function OfferSection({
                 <div className="relative mb-3.5 overflow-hidden rounded-2xl border-2 border-white/20 bg-white/10 p-2.5 shadow-lg">
                   <Image
                     src="/images/offer-mockup.webp"
-                    alt="Kit de Atividades para Autistas + Bônus"
+                    alt="Kit de Actividades para Niños con Autismo + Bonos"
                     width={110}
                     height={85}
                     className="h-auto w-24 object-contain drop-shadow-lg sm:w-28"
@@ -109,7 +109,7 @@ export default function OfferSection({
                   />
                 </div>
                 <h3 className="font-display text-2xl font-black leading-tight tracking-tight text-marker drop-shadow-[0_2px_12px_rgba(250,204,21,0.3)] sm:text-3xl md:text-[1.95rem]">
-                  Kit de Atividades para Autistas + Bônus
+                  Kit de Actividades para Niños con Autismo + Bonos
                 </h3>
               </div>
 
@@ -137,7 +137,7 @@ export default function OfferSection({
                 <div className="flex items-center justify-center gap-2 border-b border-white/10 pb-3 text-center">
                   <Gift className="h-4 w-4 text-marker" aria-hidden="true" />
                   <span className="text-xs font-black uppercase tracking-wider text-marker">
-                    Super Bônus Inclusos
+                    Súper Bonos Incluidos
                   </span>
                 </div>
                 <ul className="mt-3 space-y-2">
@@ -152,7 +152,7 @@ export default function OfferSection({
                 </ul>
                 <div className="mt-3.5 border-t border-white/10 pt-3 text-center">
                   <p className="font-display text-xs font-black uppercase tracking-wide text-coral sm:text-sm">
-                    🎁 {lastBenefit} LIBERADOS SOMENTE HOJE!
+                    🎁 {lastBenefit} ¡LIBERADOS SOLO HOY!
                   </p>
                 </div>
               </div>
@@ -161,13 +161,13 @@ export default function OfferSection({
             {/* Lado Direito: Caixa de Preço e Fechamento */}
             <div className="flex flex-col justify-center rounded-3xl border border-white/15 bg-white/5 p-6 text-center shadow-inner sm:p-8 lg:col-span-5">
               <span className="mb-4 inline-block self-center rounded-full border border-white/10 bg-white/10 px-3.5 py-1 text-xs font-bold uppercase tracking-[0.2em] text-slate-300">
-                Acesso Completo
+                Acceso Completo
               </span>
               <p className="text-sm font-semibold text-slate-400 line-through sm:text-base">
-                De R$ 97,00 por apenas
+                De: US$ 97,00 por solo
               </p>
               <div className="mt-2 flex items-baseline justify-center gap-1 font-display">
-                <span className="text-2xl font-black text-marker sm:text-3xl">R$</span>
+                <span className="text-2xl font-black text-marker sm:text-3xl">US$</span>
                 <span className="text-6xl font-black leading-none tracking-tight text-marker sm:text-7xl">
                   {price}
                 </span>
@@ -179,7 +179,7 @@ export default function OfferSection({
               )}
               <p className="mt-3 flex items-center justify-center gap-1.5 text-xs font-semibold text-emerald-400 sm:text-sm">
                 <Zap className="h-4 w-4 fill-emerald-400" aria-hidden="true" />
-                Pagamento Único · Acesso Vitalício
+                Pago Único · Acceso De Por Vida
               </p>
 
               <CtaButton
@@ -189,13 +189,13 @@ export default function OfferSection({
                 pulse
                 className="mt-6 w-full"
               >
-                Garantir meu kit com desconto!
+                ¡Obtener mi kit con descuento!
               </CtaButton>
 
               <div className="mt-6 flex justify-center border-t border-white/10 pt-5">
                 <Image
                   src="/images/security-badges.webp"
-                  alt="Compra Segura, Privacidade Protegida, Pagamento Seguro"
+                  alt="Compra Segura, Privacidad Protegida, Pago Seguro"
                   width={280}
                   height={42}
                   className="h-auto w-52 sm:w-60 object-contain opacity-90"
@@ -210,7 +210,7 @@ export default function OfferSection({
         <div className="mx-auto mt-14 flex max-w-3xl flex-col items-center gap-6 rounded-3xl border-2 border-emerald-300/80 bg-gradient-to-br from-white via-emerald-50/50 to-emerald-100/40 p-6 text-center shadow-xl shadow-emerald-600/10 sm:flex-row sm:p-8 sm:text-left">
           <Image
             src="/images/guarantee-seal.webp"
-            alt="Selo de Garantia de 7 dias"
+            alt="Sello de Garantía de 7 días"
             width={120}
             height={120}
             className="h-auto w-24 shrink-0 sm:w-28"
@@ -218,11 +218,11 @@ export default function OfferSection({
           />
           <div>
             <h3 className="font-display text-xl font-black text-yellow-500 sm:text-2xl">
-              Sua Satisfação Garantida ou Seu Dinheiro de Volta!
+              ¡Tu Satisfacción Garantizada o te Devolvemos tu Dinero!
             </h3>
             <p className="mt-2 text-ink-soft">
-              Aproveite a compra sem risco. Se em até 7 dias você sentir que o kit não é para você, devolvemos seu
-              dinheiro sem perguntas.
+              Aprovecha una compra 100% sin riesgo. Si en hasta 7 días sientes que el kit no es para ti, te devolvemos
+              todo tu dinero sin preguntas.
             </p>
           </div>
         </div>

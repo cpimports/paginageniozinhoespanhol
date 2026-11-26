@@ -3,9 +3,9 @@ import { Hourglass, Focus, PenSquare } from 'lucide-react';
 import { SectionHeading, BottomLayeredWaveDivider } from '@/components/landing/ui';
 
 const challenges = [
-  { text: 'Passar horas buscando e adaptando atividades que nem sempre funcionam.', icon: Hourglass },
-  { text: 'A dificuldade de encontrar materiais que realmente prendam a atenção dos alunos.', icon: Focus },
-  { text: 'A sensação de que falta apoio e de que você precisa criar tudo do zero.', icon: PenSquare },
+  { text: 'Pasar horas buscando y adaptando actividades que no siempre funcionan.', icon: Hourglass },
+  { text: 'La dificultad de encontrar materiales que realmente capten la atención de los alumnos.', icon: Focus },
+  { text: 'La sensación de que falta apoyo y de tener que crear todo desde cero.', icon: PenSquare },
 ];
 
 export default function AboutSection() {
@@ -14,8 +14,8 @@ export default function AboutSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           className="mb-8 md:mb-10"
-          title="Preparar atividades para alunos com TEA não precisa ser um desafio..."
-          subtitle="Muitos professores passam horas adaptando materiais, improvisando recursos visuais e buscando estratégias que mantenham o interesse do aluno. Mas isso não precisa ser assim."
+          title="Preparar actividades para niños con TEA no tiene por qué ser un desafío..."
+          subtitle="Muchos docentes y familias pasan horas adaptando materiales, improvisando recursos visuales y buscando estrategias para mantener el interés del niño. Pero no tiene por qué ser así."
         />
 
         <ul className="mx-auto grid max-w-4xl gap-3.5 md:grid-cols-3">
@@ -36,11 +36,10 @@ export default function AboutSection() {
 
         <div className="mx-auto mt-8 sm:mt-10 max-w-2xl text-center">
           <p className="text-base sm:text-lg text-ink-soft">
-            Se você se identificou com esses pontos, saiba que não está sozinho. E o mais importante: existe um caminho
-            mais leve.
+            Si te identificas con estos puntos, no estás solo. Y lo más importante: existe un camino más sencillo y eficaz.
           </p>
           <p className="mt-2.5 font-display text-xl font-extrabold text-ink sm:text-2xl">
-            Foi por isso que criamos a <span className="text-sky-600 font-black">Plataforma Gêniozinho em Ação</span>.
+            Por eso creamos la <span className="text-sky-600 font-black">Plataforma Geniecitos en Acción</span>.
           </p>
         </div>
 
@@ -48,7 +47,7 @@ export default function AboutSection() {
         <div className="relative mx-auto mt-8 sm:mt-10 max-w-3xl px-2 sm:px-4">
           <Image
             src="/images/about-antes-depois.webp"
-            alt="Comparativo: Antes e Depois com a Plataforma Gêniozinho em Ação"
+            alt="Comparativa: Con el Kit y Sin el Kit Geniecitos en Acción"
             width={1024}
             height={580}
             className="h-auto w-full object-contain drop-shadow-[0_16px_36px_rgba(27,42,74,0.12)]"

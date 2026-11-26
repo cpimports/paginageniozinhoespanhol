@@ -19,16 +19,15 @@ export default function Footer() {
           <Link href="/" className="flex flex-col items-center space-y-2">
             <Image
               src="/images/logo.webp" 
-              alt="Logo Gêniozinho em Ação"
-              data-ai-hint="logo abstract playful"
-              width={64} 
-              height={64}
-              className="rounded-md"
+              alt="Logo Geniecitos en Acción"
+              width={90} 
+              height={60}
+              className="h-auto w-auto max-h-[60px]"
             />
-            <span className="font-headline text-lg font-semibold text-primary">Gêniozinho em Ação</span>
+            <span className="font-headline text-lg font-semibold text-primary">Geniecitos en Acción</span>
           </Link>
-          <p>&copy; {currentYear} Gêniozinho em Ação. Todos os direitos reservados.</p>
-          <p>Transformando o aprendizado com atividades lúdicas e eficazes!</p>
+          <p>&copy; {currentYear} Geniecitos en Acción. Todos los derechos reservados.</p>
+          <p>¡Transformando el aprendizaje con actividades lúdicas y eficaces!</p>
         </div>
       </div>
     </footer>

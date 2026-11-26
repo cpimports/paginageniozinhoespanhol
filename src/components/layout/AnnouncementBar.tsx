@@ -21,7 +21,7 @@ export default function AnnouncementBar() {
           >
             🎁
           </span>
-          <strong>OFERTA DE LANÇAMENTO:</strong> 80% de desconto só hoje no <strong>Kit Gêniozinho em Ação!</strong>
+          <strong>OFERTA DE LANZAMIENTO:</strong> ¡80% de descuento solo hoy en el <strong>Kit Geniecitos en Acción!</strong>
         </p>
       </div>
       {/* Add a placeholder to push down the content */}

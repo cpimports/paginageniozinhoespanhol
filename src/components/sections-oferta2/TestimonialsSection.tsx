@@ -16,14 +16,9 @@ import DynamicCounterBanner from './DynamicCounterBanner';
 import { SectionHeading, BottomCurveDivider } from '@/components/landing/ui';
 
 const hostedVideos = [
-  { videoUrl: '/videos/DEPOIMENTO-PROFESSORA.mp4', title: 'Depoimento Professora' },
-  { videoUrl: '/videos/Depoimento Professora Nilva.mp4', title: 'Depoimento Professora Nilva' },
-  { videoUrl: '/videos/DEPOIMENTO-ELIANE.mp4', title: 'Depoimento Eliane' },
-  { videoUrl: '/videos/DEPOIMENTO-THIAGO.mp4', title: 'Depoimento Thiago' },
-  { videoUrl: '/videos/DEPOIMENTO-CAMILA.mp4', title: 'Depoimento Camila' },
-  { videoUrl: '/videos/DEPOIMENTO-SILVANA.mp4', title: 'Depoimento Silvana' },
-  { videoUrl: '/videos/DEPOIMENTO-GABRIELE.mp4', title: 'Depoimento Gabriele' },
-  { videoUrl: '/videos/DEPOIMENTO-MARIA.mp4', title: 'Depoimento Maria' },
+  { videoUrl: '/videos/testimonio-1.mp4', posterUrl: '/videos/poster-1.webp', title: 'Testimonio 1 - Experiencia con el Kit' },
+  { videoUrl: '/videos/testimonio-2.mp4', posterUrl: '/videos/poster-2.webp', title: 'Testimonio 2 - Docente en Aula' },
+  { videoUrl: '/videos/testimonio-4.mp4', posterUrl: '/videos/poster-4.webp', title: 'Testimonio 3 - Familia y Aprendizaje' },
 ];
 
 const commentsData = [
@@ -31,53 +26,77 @@ const commentsData = [
     id: 1,
     avatarUrl: '/images/avatar-carla.webp',
     name: 'Carla Monteiro',
-    role: 'Professora de Educação Infantil',
-    text: 'Sempre perdi horas preparando atividades inclusivas, mas agora tudo já está pronto e organizado. Essa plataforma simplesmente mudou minha rotina em sala de aula e facilitou demais meu planejamento, amei 🥰',
+    role: 'Educadora Infantil',
+    text: 'Siempre perdía horas preparando actividades inclusivas, pero ahora todo ya está listo y organizado. Esta plataforma transformó por completo mi rutina y facilitó muchísimo mi planificación, me encantó 🥰',
   },
   {
     id: 2,
     avatarUrl: '/images/avatar-vanessa.webp',
     name: 'Vanessa Santos',
-    role: 'Professora há 12 anos',
-    text: 'Sou professora há 12 anos e nunca encontrei um material tão completo e adaptado para crianças autistas! A variedade das atividades lúdicas é incrível, consigo engajar meus alunos de uma forma que antes era muito difícil.',
+    role: 'Docente hace 12 años',
+    text: '¡Soy profesora hace 12 años y nunca había encontrado un material tan completo y adaptado para niños con autismo! La variedad de actividades lúdicas es increíble, logro enganchar a mis alumnos como nunca antes.',
   },
   {
     id: 3,
     avatarUrl: '/images/avatar-andre.webp',
     name: 'André Ferreira',
     role: 'Terapeuta Ocupacional',
-    text: 'Como terapeuta, sempre procuro materiais que unam didática com acessibilidade. O Gêniozinho em Ação entrega isso com excelência. Os pais dos meus pacientes amaram poder aplicar em casa também.',
+    text: 'Como terapeuta, siempre busco materiales que unan didáctica con accesibilidad. Geniecitos en Acción lo logra con excelencia. Las familias de mis pacientes están encantadas de poder aplicarlo en casa también.',
   },
   {
     id: 4,
     avatarUrl: '/images/avatar-raquel.webp',
     name: 'Raquel Teodoro',
-    role: 'Mãe Atípica (Manoela - TEA Nível 2)',
-    text: 'Sou mãe da Manoela, ela é autista nível 2 e sei o quanto é difícil ver outras crianças avançando enquanto minha filha enfrenta mais obstáculo. O Gêniozinho em Ação trouxe leveza para nossa rotina, fazemos uma atividade por dia e já sentimos diferença. É incrível!',
+    role: 'Mamá de Manoela (TEA Nivel 2)',
+    text: 'Soy mamá de Manoela, ella tiene autismo nivel 2 y sé lo difícil que es sentir que tu hija enfrenta más obstáculos. Geniecitos en Acción trajo ligereza a nuestra rutina, hacemos una actividad al día y ya notamos un cambio enorme. ¡Es maravilloso!',
   },
 ];
 
-const VideoCard = ({ title, videoUrl, load }: { title: string; videoUrl: string; load: boolean }) => (
-  <div className="relative mx-auto aspect-[9/16] w-full max-w-[280px] sm:max-w-[320px] overflow-hidden rounded-3xl border-4 border-white bg-ink shadow-[0_10px_30px_-10px_rgba(27,42,74,0.45)]">
-    {load ? (
+const VideoCard = ({ title, videoUrl, posterUrl }: { title: string; videoUrl: string; posterUrl: string }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handlePlay = () => {
+    setIsPlaying(true);
+    if (videoRef.current) {
+      videoRef.current.play();
+    }
+  };
+
+  return (
+    <div className="relative mx-auto aspect-[9/16] w-full max-w-[280px] sm:max-w-[320px] overflow-hidden rounded-3xl border-4 border-white bg-slate-900 shadow-[0_10px_30px_-10px_rgba(27,42,74,0.45)] group">
       <video
-        controls
-        className="h-full w-full object-cover"
+        ref={videoRef}
+        controls={isPlaying}
+        poster={posterUrl}
         preload="metadata"
-        src={`${videoUrl}#t=0.1`}
+        src={videoUrl}
         playsInline
-        muted
+        className="h-full w-full object-cover"
         aria-label={title}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
       >
-        Seu navegador não suporta a tag de vídeo.
+        Tu navegador no soporta la etiqueta de video.
       </video>
-    ) : (
-      <div className="flex h-full w-full items-center justify-center text-white/40">
-        <PlayCircle className="h-12 w-12" aria-hidden="true" />
-      </div>
-    )}
-  </div>
-);
+
+      {!isPlaying && (
+        <button
+          type="button"
+          onClick={handlePlay}
+          aria-label={`Reproducir ${title}`}
+          className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors cursor-pointer group"
+        >
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-primary/95 text-white flex items-center justify-center shadow-2xl transition-transform transform group-hover:scale-110 border-2 border-white/80">
+            <svg className="w-8 h-8 sm:w-10 sm:h-10 ml-1 fill-white" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+        </button>
+      )}
+    </div>
+  );
+};
 
 const CommentCard = ({ comment }: { comment: (typeof commentsData)[number] }) => (
   <article className="group flex h-full flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-slate-300 hover:shadow-lg">
@@ -163,11 +182,11 @@ export default function TestimonialsSection() {
   const handleDotClick = useCallback((index: number) => api?.scrollTo(index), [api]);
 
   return (
-    <section ref={sectionRef} id="depoimentos" className="bg-sky-50/70 pt-16 md:pt-24 pb-0">
+    <section ref={sectionRef} id="testimonios" className="bg-sky-50/70 pt-16 md:pt-24 pb-0">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          title="Depoimentos reais sobre o Gêniozinho em Ação!"
-          subtitle="Descubra como o Gêniozinho em Ação está facilitando o trabalho dos professores e acelerando o aprendizado das crianças autistas."
+          title="¡Testimonios reales sobre Geniecitos en Acción!"
+          subtitle="Descubre cómo Geniecitos en Acción está facilitando el trabajo de docentes y familias, acelerando el aprendizaje de niños con autismo."
           className="mb-8 md:mb-10"
         />
         <div className="mb-12 flex justify-center">
@@ -183,39 +202,37 @@ export default function TestimonialsSection() {
             <CarouselContent>
               {hostedVideos.map((video) => (
                 <CarouselItem key={video.videoUrl} className="basis-full flex justify-center">
-                  <VideoCard title={video.title} videoUrl={video.videoUrl} load={loadVideos} />
+                  <VideoCard title={video.title} videoUrl={video.videoUrl} posterUrl={video.posterUrl} />
                 </CarouselItem>
               ))}
             </CarouselContent>
             <CarouselPrevious
-              aria-label="Vídeo anterior"
+              aria-label="Video anterior"
               className="flex left-0 sm:-left-3 md:-left-6 h-10 w-10 sm:h-11 sm:w-11 border-2 border-ink bg-white text-ink shadow-md hover:bg-sky-100 transition-colors z-20"
             />
             <CarouselNext
-              aria-label="Próximo vídeo"
+              aria-label="Próximo video"
               className="flex right-0 sm:-right-3 md:-right-6 h-10 w-10 sm:h-11 sm:w-11 border-2 border-ink bg-white text-ink shadow-md hover:bg-sky-100 transition-colors z-20"
             />
           </Carousel>
-          {api && (
-            <div className="mt-6 flex items-center justify-center gap-2">
-              {Array.from({ length: count }).map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleDotClick(index)}
-                  className={cn(
-                    'h-2.5 rounded-full transition-all duration-200',
-                    current === index ? 'w-7 bg-ink' : 'w-2.5 bg-ink/20 hover:bg-ink/40',
-                  )}
-                  aria-label={`Ir para vídeo ${index + 1}`}
-                />
-              ))}
-            </div>
-          )}
+          <div className="mt-6 flex items-center justify-center gap-3 py-2">
+            {Array.from({ length: 3 }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => handleDotClick(index)}
+                className={cn(
+                  'h-3 rounded-full transition-all duration-300 ease-in-out cursor-pointer',
+                  current === index ? 'w-8 bg-primary shadow-md' : 'w-3 bg-ink/20 hover:bg-ink/40',
+                )}
+                aria-label={`Ir al video ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
         <div className="mx-auto mt-14 sm:mt-16 text-center">
           <h3 className="font-display text-lg font-extrabold text-ink sm:text-xl md:text-2xl">
-            Comentários de Clientes Satisfeitos
+            Comentarios de Clientes Satisfechos
           </h3>
         </div>
 

@@ -41,8 +41,8 @@ export default function Oferta2Page() {
         <BenefitsSection />
         <TestimonialsSection />
         <OfferSection 
-          price="19,76" 
-          installmentText="ou 4x de R$5,66" 
+          price="6,90" 
+          installmentText="" 
           checkoutUrl="https://loja.geniozinhoemacao.com.br/checkout/v4/WbE0rP04SZDO0RPFaY8D" 
         /> 
         <FaqSection />

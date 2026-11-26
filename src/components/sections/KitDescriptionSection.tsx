@@ -16,19 +16,19 @@ import { Card, CardContent } from "@/components/ui/card";
 import { cn } from '@/lib/utils';
 
 const carouselImages: { src: string; alt: string; hint: string }[] = [
-    { src: '/images/activity-6.webp', alt: 'Atividade de Números', hint: 'numbers counting' },
-    { src: '/images/activity-1.webp', alt: 'Atividade de Alfabetização', hint: 'alphabet learning' },
-    { src: '/images/activity-2.webp', alt: 'Atividade de Coordenação Motora', hint: 'motor skills' },
-    { src: '/images/activity-3.webp', alt: 'Atividade de Raciocínio Lógico', hint: 'logic puzzle' },
-    { src: '/images/activity-4.webp', alt: 'Atividade de Vogais', hint: 'vowels worksheet' },
-    { src: '/images/activity-5.webp', alt: 'Atividade de Formas Geométricas', hint: 'geometric shapes' },
-    { src: '/images/activity-7.webp', alt: 'Atividade de Cores', hint: 'colors activity' },
-    { src: '/images/activity-8.webp', alt: 'Atividade de Recorte e Colagem', hint: 'cut and paste' },
-    { src: '/images/activity-9.webp', alt: 'Atividade Sensorial', hint: 'sensory play' },
-    { src: '/images/activity-10.webp', alt: 'Atividade de Leitura', hint: 'reading practice' },
-    { src: '/images/activity-11.webp', alt: 'Atividade de Escrita', hint: 'writing practice' },
-    { src: '/images/activity-12.webp', alt: 'Atividade de Emoções', hint: 'emotions chart' },
-    { src: '/images/activity-13.webp', alt: 'Quebra-cabeça', hint: 'puzzle game' },
+    { src: '/images/activity-6.webp', alt: 'Actividad de Números', hint: 'numbers counting' },
+    { src: '/images/activity-1.webp', alt: 'Actividad de Fonemas y Sílabas', hint: 'alphabet learning' },
+    { src: '/images/activity-2.webp', alt: 'Actividad de Formar Palabras con Plastilina', hint: 'motor skills' },
+    { src: '/images/activity-3.webp', alt: 'Actividad de Asociación de Palabras', hint: 'logic puzzle' },
+    { src: '/images/activity-4.webp', alt: 'Actividad de Organiza las Formas', hint: 'vowels worksheet' },
+    { src: '/images/activity-5.webp', alt: 'Actividad de la Rueda de Colores', hint: 'geometric shapes' },
+    { src: '/images/activity-7.webp', alt: 'Actividad de Bingo de Palabras', hint: 'colors activity' },
+    { src: '/images/activity-8.webp', alt: 'Actividad de Recorte y Pegado', hint: 'cut and paste' },
+    { src: '/images/activity-9.webp', alt: 'Actividad de Tablero de Rutina Visual', hint: 'sensory play' },
+    { src: '/images/activity-10.webp', alt: 'Actividad de Lectura', hint: 'reading practice' },
+    { src: '/images/activity-11.webp', alt: 'Actividad de Escritura', hint: 'writing practice' },
+    { src: '/images/activity-12.webp', alt: 'Actividad de Mi Nombre es Así', hint: 'emotions chart' },
+    { src: '/images/activity-13.webp', alt: 'Rompecabezas Inclusivo', hint: 'puzzle game' },
 ];
 
 export default function KitDescriptionSection() {
@@ -127,7 +127,7 @@ export default function KitDescriptionSection() {
           <div className="mb-8 inline-block animate-screen-glow">
             <Image
               src="/images/children-studying.webp"
-              alt="Crianças estudando felizes"
+              alt="Niños aprendiendo felices"
               data-ai-hint="children studying happy"
               width={250}
               height={167}
@@ -137,21 +137,21 @@ export default function KitDescriptionSection() {
             />
           </div>
           <h2 className="font-merriweather text-2xl sm:text-3xl font-bold text-white mb-8">
-            O Kit que estimula o <span className="text-yellow-400">desenvolvimento das crianças autistas</span> e facilita sua rotina em sala de aula
+            El Kit que estimula el <span className="text-yellow-400">desarrollo de los niños con autismo</span> y facilita tu rutina en el aula y en casa
           </h2>
         </div>
         <div className="max-w-3xl mx-auto space-y-6 text-lg text-gray-300 text-center">
           <p>
-            Mais de 1700 atividades inclusivas e adaptadas para crianças autistas, criadas para estimular o foco, a linguagem, a interação social e o desenvolvimento cognitivo.
+            Más de 1500 actividades inclusivas y adaptadas para niños con autismo, diseñadas para estimular la concentración, el lenguaje, la interacción social y el desarrollo cognitivo.
           </p>
           <p>
-            O material é 100% digital, disponível na nossa plataforma em PDF pronto para imprimir, para você usar imediatamente em casa, na escola ou no consultório.
+            El material es 100% digital, disponible en nuestra plataforma en PDF listo para imprimir, para usar de inmediato en casa, en la escuela o en el consultorio.
           </p>
           
           <div ref={carouselRef} className="mt-8 md:mt-12 text-center">
             <div className="inline-block bg-slate-800/30 p-4 rounded-2xl shadow-2xl shadow-sky-400/10">
               <p className="text-center text-md text-gray-200 mt-2 mb-4">
-                🧩 Veja Algumas das Atividades Que Estão no Kit
+                🧩 Mira Algunas de las Actividades Incluidas en el Kit
               </p>
               <Carousel
                 setApi={setApi}
@@ -166,15 +166,14 @@ export default function KitDescriptionSection() {
                     <CarouselItem key={index} className="basis-full sm:basis-1/2">
                       <div className="p-1">
                         <Card className="overflow-hidden border-0 shadow-xl bg-transparent">
-                          <CardContent className="relative flex items-center justify-center p-0 aspect-[4/5]">
+                          <CardContent className="relative w-full aspect-[4/5] overflow-hidden rounded-xl p-0">
                             <Image
                               src={image.src}
                               alt={image.alt}
                               data-ai-hint={image.hint}
-                              width={312}
-                              height={390}
-                              className="object-cover rounded-lg h-auto w-full"
-                              sizes="(max-width: 640px) 90vw, 45vw"
+                              fill
+                              className="object-cover rounded-xl"
+                              sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 400px"
                               loading={index === 0 ? 'eager' : 'lazy'}
                             />
                           </CardContent>
@@ -183,8 +182,8 @@ export default function KitDescriptionSection() {
                     </CarouselItem>
                   ))}
                 </CarouselContent>
-                <CarouselPrevious aria-label="Slide anterior" className="text-white bg-primary/50 hover:bg-primary/70 border-0 disabled:bg-slate-700/30 disabled:text-slate-400" />
-                <CarouselNext aria-label="Próximo slide" className="text-white bg-primary/50 hover:bg-primary/70 border-0 disabled:bg-slate-700/30 disabled:text-slate-400" />
+                <CarouselPrevious aria-label="Diapositiva anterior" className="text-white bg-primary/50 hover:bg-primary/70 border-0 disabled:bg-slate-700/30 disabled:text-slate-400" />
+                <CarouselNext aria-label="Siguiente diapositiva" className="text-white bg-primary/50 hover:bg-primary/70 border-0 disabled:bg-slate-700/30 disabled:text-slate-400" />
               </Carousel>
               {api && count > 0 && (
                 <div className="flex justify-center items-center space-x-2 mt-4 py-2">
@@ -196,13 +195,13 @@ export default function KitDescriptionSection() {
                         "h-2 w-2 rounded-full transition-all duration-150 ease-in-out",
                         current === index ? "bg-white scale-110" : "bg-white/40 hover:bg-white/70"
                       )}
-                      aria-label={`Ir para slide ${index + 1}`}
+                      aria-label={`Ir a diapositiva ${index + 1}`}
                     />
                   ))}
                 </div>
               )}
                <p className="text-center text-md text-gray-300 mt-6 mb-4">
-                Essas são apenas algumas das <span className="text-yellow-400 font-bold">mais de 1700 atividades exclusivas</span> que você recebe na Plataforma Gêniozinho em Ação!
+                ¡Estas son solo algunas de las <span className="text-yellow-400 font-bold">más de 1500 actividades exclusivas</span> que recibes en la Plataforma Geniecitos en Acción!
               </p>
             </div>
           </div>
@@ -215,7 +214,7 @@ export default function KitDescriptionSection() {
             className="shadow-lg hover:shadow-xl bg-yellow-400 hover:bg-yellow-500 text-black font-semibold animate-pulse-yellow-cta transition-shadow"
           >
             <a href="#oferta-especial">
-              ACESSAR MATERIAL AGORA!
+              ¡ACCEDER AL MATERIAL AHORA!
             </a>
           </Button>
         </div>

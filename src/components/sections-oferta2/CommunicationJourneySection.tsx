@@ -24,31 +24,31 @@ const practiceImages = [
 const benefits = [
   {
     icon: Award,
-    title: 'Autonomia',
+    title: 'Autonomía',
     color: 'bg-sky-100 text-sky-700',
     bar: 'bg-sky-400',
-    text: 'Estimule a capacidade do seu aluno de superar desafios e se expressar de forma independente, fortalecendo sua confiança e independência nas interações sociais e no desenvolvimento pessoal.',
+    text: 'Estimula la capacidad de tu alumno o hijo para superar desafíos y expresarse de forma independiente, fortaleciendo su confianza e independencia en las interacciones cotidianas.',
   },
   {
     icon: BrainCircuit,
-    title: 'Desenvolvimento cognitivo',
+    title: 'Desarrollo cognitivo',
     color: 'bg-violet-100 text-violet-700',
     bar: 'bg-violet-400',
-    text: 'Estimula o desenvolvimento das habilidades cognitivas, ajudando-o a compreender e gerenciar emoções, melhorando sua capacidade de resolução de problemas e promovendo um pensamento mais claro e estruturado.',
+    text: 'Estimula el desarrollo de habilidades cognitivas clave, facilitando la comprensión y gestión de emociones y potenciando la resolución de problemas de forma estructurada.',
   },
   {
     icon: PersonStanding,
-    title: 'Autoconfiança',
+    title: 'Confianza en sí mismo',
     color: 'bg-emerald-100 text-emerald-700',
     bar: 'bg-emerald-400',
-    text: 'Fortalece a autoestima e a confiança, fornecendo-lhe ferramentas para identificar e gerenciar emoções, melhorando sua comunicação verbal e não verbal e capacitando-o a interagir positivamente com outras pessoas.',
+    text: 'Fortalece la autoestima y la seguridad personal, brindando herramientas lúdicas para mejorar la comunicación verbal y no verbal e interactuar con entusiasmo.',
   },
   {
     icon: Users,
-    title: 'Inclusão',
+    title: 'Inclusión',
     color: 'bg-amber-100 text-amber-700',
     bar: 'bg-amber-400',
-    text: 'Estimule a integração do seu aluno em diferentes ambientes sociais, incentivando o desenvolvimento de habilidades de comunicação e interação que o ajudem a estabelecer amizades significativas e a desfrutar de relacionamentos sociais gratificantes.',
+    text: 'Favorece la integración armónica en diferentes entornos sociales, desarrollando habilidades de relación que le permitan disfrutar de amistades y aprendizajes compartidos.',
   },
 ];
 
@@ -73,7 +73,7 @@ export default function CommunicationJourneySection() {
     <section id="communication-journey" className="bg-[#F1F5F9] pt-16 md:pt-24 pb-0">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          title="Veja como nosso kit pode transformar a jornada de comunicação do seu aluno autista"
+          title="Descubre cómo nuestro kit puede transformar la comunicación de tu alumno o hijo con autismo"
         />
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {benefits.map(({ icon: Icon, title, color, bar, text }) => (
@@ -96,13 +96,13 @@ export default function CommunicationJourneySection() {
           <div className="mb-7 sm:mb-9 text-center">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-sky-300/80 bg-sky-50 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-sky-800 shadow-2xs">
               <Sparkles className="h-3.5 w-3.5 text-sky-600" aria-hidden="true" />
-              Na Prática
+              En la Práctica
             </span>
             <h3 className="mt-2.5 font-display text-xl sm:text-2xl md:text-[1.65rem] font-extrabold text-ink tracking-tight">
-              Veja nossas atividades sendo aplicadas na prática 💙
+              Mira nuestras actividades siendo aplicadas en la práctica 💙
             </h3>
             <p className="mt-2 text-xs sm:text-sm text-ink-soft max-w-lg mx-auto">
-              Confira momentos reais de desenvolvimento, aprendizado e interação com as atividades do kit
+              Conoce momentos reales de desarrollo, aprendizaje e interacción con las actividades del kit
             </p>
           </div>
 
@@ -110,7 +110,7 @@ export default function CommunicationJourneySection() {
           <div
             ref={emblaRef}
             className="cursor-grab active:cursor-grabbing overflow-hidden py-3 select-none"
-            aria-label="Carrossel de atividades na prática"
+            aria-label="Carrusel de actividades en la práctica"
           >
             <div className="flex touch-pan-y gap-4 sm:gap-5">
               {practiceImages.map((src, index) => (
@@ -121,7 +121,7 @@ export default function CommunicationJourneySection() {
                   <div className="relative aspect-[3/4] w-[210px] overflow-hidden rounded-xl bg-slate-100 sm:w-[260px] md:w-[290px]">
                     <Image
                       src={src}
-                      alt="Criança aplicando atividade adaptada na prática"
+                      alt="Niño realizando actividad adaptada en la práctica"
                       fill
                       className="object-cover pointer-events-none select-none"
                       sizes="(max-width: 640px) 210px, (max-width: 768px) 260px, 290px"

@@ -6,23 +6,23 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 const benefits = [
   {
     icon: <Award className="h-12 w-12 text-blue-500" />,
-    title: 'AUTONOMIA',
-    text: 'Estimule a capacidade do seu aluno de superar desafios e se expressar de forma independente, fortalecendo sua confiança e independência nas interações sociais e no desenvolvimento pessoal.',
+    title: 'AUTONOMÍA',
+    text: 'Estimula la capacidad del niño para superar desafíos y expresarse de forma independiente, fortaleciendo su seguridad y autonomía en las interacciones cotidianas y en su desarrollo personal.',
   },
   {
     icon: <BrainCircuit className="h-12 w-12 text-purple-500" />,
-    title: 'DESENVOLVIMENTO COGNITIVO',
-    text: 'Estimula o desenvolvimento das habilidades cognitivas, ajudando-o a compreender e gerenciar emoções, melhorando sua capacidade de resolução de problemas e promovendo um pensamento mais claro e estruturado.',
+    title: 'DESARROLLO COGNITIVO',
+    text: 'Estimula el desarrollo de las habilidades cognitivas, ayudándolo a comprender y gestionar emociones, mejorando su resolución de problemas y promoviendo un pensamiento más claro y estructurado.',
   },
   {
     icon: <PersonStanding className="h-12 w-12 text-green-500" />,
-    title: 'AUTOCONFIANÇA',
-    text: 'Fortalece a autoestima e a confiança, fornecendo-lhe ferramentas para identificar e gerenciar emoções, melhorando sua comunicação verbal e não verbal e capacitando-o a interagir positivamente com outras pessoas.',
+    title: 'CONFIANZA EN SÍ MISMO',
+    text: 'Fortalece la autoestima y la seguridad personal, brindándole herramientas para identificar y regular emociones, enriqueciendo su comunicación verbal y no verbal para interactuar positivamente.',
   },
   {
     icon: <Users className="h-12 w-12 text-yellow-500" />,
-    title: 'INCLUSÃO',
-    text: 'Estimule a integração do seu aluno em diferentes ambientes sociais, incentivando o desenvolvimento de habilidades de comunicação e interação que o ajudem a estabelecer amizades significativas e a desfrutar de relacionamentos sociais gratificantes.',
+    title: 'INCLUSIÓN',
+    text: 'Favorece la integración del niño en diferentes entornos sociales y escolares, desarrollando habilidades de comunicación y convivencia que lo ayuden a crear vínculos significativos.',
   },
 ];
 
@@ -32,7 +32,7 @@ export default function CommunicationJourneySection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="font-merriweather text-3xl sm:text-4xl font-bold text-primary">
-            Veja como nosso kit pode transformar a jornada de comunicação do seu aluno autista
+            Descubre cómo nuestro kit puede transformar el proceso de comunicación de tu alumno o hijo con autismo
           </h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

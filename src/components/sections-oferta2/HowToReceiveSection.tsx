@@ -4,18 +4,18 @@ import { SectionHeading, BottomWaveDivider } from '@/components/landing/ui';
 const steps = [
   {
     icon: CreditCard,
-    title: 'Adquira seu pacote',
-    description: 'Realize o pagamento e receba o acesso à nossa plataforma exclusiva com todo o material organizado.',
+    title: 'Adquiere tu paquete',
+    description: 'Realiza el pago y recibe acceso inmediato a nuestra plataforma exclusiva con todo el material organizado.',
   },
   {
     icon: Printer,
-    title: 'Acesse e imprima quando quiser',
-    description: 'Baixe e imprima as atividades quando e quantas vezes precisar.',
+    title: 'Accede e imprime cuando quieras',
+    description: 'Descarga e imprime las actividades cuando y cuantas veces lo necesites.',
   },
   {
     icon: Sparkles,
-    title: 'Aplique com seus alunos',
-    description: 'Use as atividades em sala de aula e torne o aprendizado mais prático, inclusivo e divertido.',
+    title: 'Aplica de inmediato',
+    description: 'Utiliza las actividades en casa o en el aula y haz que el aprendizaje sea práctico, inclusivo y divertido.',
   },
 ];
 
@@ -23,7 +23,7 @@ export default function HowToReceiveSection() {
   return (
     <section id="how-to-receive" className="bg-white pt-16 md:pt-24 pb-0">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading title="Veja como receber seu material" />
+        <SectionHeading title="Descubre cómo recibir tu material" />
         <ol className="relative mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
           {/* linha tracejada ligando os passos (desktop) */}
           <span

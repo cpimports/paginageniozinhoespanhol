@@ -8,29 +8,29 @@ import { SectionHeading, BottomWaveDivider } from '@/components/landing/ui';
 
 const faqData = [
   {
-    question: 'O material está de acordo com a BNCC?',
+    question: '¿El material está alineado con estándares pedagógicos?',
     answer:
-      'Sim, todos os nossos materiais são alinhados com os códigos das habilidades e competências da Base Nacional Comum Curricular (BNCC), proporcionando um ensino atualizado e eficaz.',
+      '¡Sí! Todos nuestros materiales están diseñados siguiendo competencias clave para el desarrollo infantil y la educación especial, garantizando una enseñanza actualizada, inclusiva y eficaz.',
   },
   {
-    question: 'Como vou receber o material?',
+    question: '¿Cómo voy a recibir el material?',
     answer:
-      'O Gêniozinho em Ação é totalmente digital, você está adquirindo o acesso a um portal de atividades e irá receber o material utilizando o seu e-mail, de imediato após a confirmação de pagamento, e o melhor, no conforto de sua casa!',
+      'Geniecitos en Acción es 100% digital. Adquieres acceso a un portal de actividades y recibirás todo directamente en tu correo electrónico de inmediato tras la confirmación del pago, para imprimir cuando quieras en la comodidad de tu hogar.',
   },
   {
-    question: 'Se eu não gostar do produto, posso cancelar?',
+    question: '¿Si no me gusta el producto, puedo solicitar un reembolso?',
     answer:
-      'Pode sim, não tem problema, caso não veja resultados você tem até 7 dias após aprovação do pagamento, devolvemos o valor pago.',
+      '¡Claro que sí, no hay problema! Si sientes que no es para ti o no ves resultados, tienes hasta 7 días después de la compra para solicitar la devolución total de tu dinero sin preguntas.',
   },
   {
-    question: 'São quantas atividades?',
+    question: '¿Cuántas actividades incluye el kit?',
     answer:
-      'São +1500 atividades, pensadas especialmente no aprendizado do seu pequeno, com +12 Bônus Exclusivos irresistíveis com várias atividades.',
+      'Incluye +1500 actividades pensadas especialmente para el aprendizaje y desarrollo de tu pequeño, junto con 12 Súper Bonos Exclusivos adicionales.',
   },
   {
-    question: 'Posso usar o Kit em Sala de Aula e para Reforço em Casa?',
+    question: '¿Puedo usar el kit tanto en el aula como para refuerzo en casa?',
     answer:
-      'Claro! Nossos kits são versáteis e podem ser utilizados tanto em sala de aula quanto para reforço escolar em casa, ajudando a reforçar o aprendizado.',
+      '¡Por supuesto! Nuestros kits son muy versátiles y son ideales tanto para docentes y terapeutas en el aula, como para familias que desean reforzar el aprendizaje en casa.',
   },
 ];
 
@@ -38,7 +38,7 @@ export default function FaqSection() {
   return (
     <section id="faq" className="bg-slate-50 pt-16 md:pt-24 pb-0">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading eyebrow="Tire suas dúvidas" eyebrowTone="blue" title="Perguntas frequentes" />
+        <SectionHeading eyebrow="Resuelve tus dudas" eyebrowTone="blue" title="Preguntas frecuentes" />
         <div className="mx-auto max-w-3xl">
           <Accordion type="single" collapsible className="w-full space-y-3">
             {faqData.map((item, index) => (

@@ -6,16 +6,16 @@ import { ShoppingCart } from 'lucide-react';
 import { incrementCount } from '@/hooks/useSharedCounter';
 
 const buyers = [
-    { name: 'Nicole', location: 'São Paulo, SP' },
-    { name: 'Lucas', location: 'Rio de Janeiro, RJ' },
-    { name: 'Fernanda', location: 'Belo Horizonte, MG' },
-    { name: 'Rafael', location: 'Curitiba, PR' },
-    { name: 'Juliana', location: 'Salvador, BA' },
-    { name: 'Carlos', location: 'Fortaleza, CE' },
-    { name: 'Ana', location: 'Porto Alegre, RS' },
-    { name: 'Pedro', location: 'Recife, PE' },
-    { name: 'Beatriz', location: 'Goiânia, GO' },
-    { name: 'Thiago', location: 'Brasília, DF' },
+    { name: 'Sofía', location: 'Ciudad de México' },
+    { name: 'Mateo', location: 'Bogotá' },
+    { name: 'Valentina', location: 'Buenos Aires' },
+    { name: 'Santiago', location: 'Santiago de Chile' },
+    { name: 'Camila', location: 'Lima' },
+    { name: 'Alejandro', location: 'Guadalajara' },
+    { name: 'Lucía', location: 'Medellín' },
+    { name: 'Joaquín', location: 'Montevideo' },
+    { name: 'Mariana', location: 'Quito' },
+    { name: 'Diego', location: 'Madrid' },
 ];
 
 interface CurrentNotification {
@@ -66,7 +66,7 @@ export default function SocialProofNotification() {
       <ShoppingCart className="h-6 w-6" />
       <div>
         <p className="text-sm">
-          <span className="font-bold">{notification.name}</span> acabou de comprar!
+          <span className="font-bold">{notification.name}</span> ¡acaba de comprar!
         </p>
       </div>
     </div>

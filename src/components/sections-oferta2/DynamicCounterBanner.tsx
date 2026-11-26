@@ -19,7 +19,7 @@ const DynamicCounterBanner = () => {
     return () => clearTimeout(timer);
   }, [count]);
 
-  const formattedCount = new Intl.NumberFormat('pt-BR').format(count);
+  const formattedCount = new Intl.NumberFormat('es-ES').format(count);
 
   return (
     <div className="mx-auto inline-flex items-center gap-3 sm:gap-4 rounded-2xl sm:rounded-full border border-blue-400/25 bg-gradient-to-r from-[#0c182e] via-[#142344] to-[#0c182e] px-5 sm:px-7 py-2.5 sm:py-3 shadow-xl shadow-blue-950/30 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-950/40 hover:scale-[1.02]">
@@ -39,10 +39,10 @@ const DynamicCounterBanner = () => {
           >
             {formattedCount}
           </span>{' '}
-          professores
+          docentes y familias
         </p>
         <p className="text-xs sm:text-sm font-semibold text-blue-100/85">
-          já usam o Gêniozinho em Ação!
+          ¡ya usan Geniecitos en Acción!
         </p>
       </div>
     </div>

@@ -13,7 +13,7 @@ interface ActivityCardProps {
   actionLink?: string;
 }
 
-export default function ActivityCard({ title, description, imageUrl, imageHint, category, actionText = "Saiba Mais", actionLink = "#" }: ActivityCardProps) {
+export default function ActivityCard({ title, description, imageUrl, imageHint, category, actionText = "Saber Más", actionLink = "#" }: ActivityCardProps) {
   return (
     <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 h-full">
       <CardHeader className="p-0">

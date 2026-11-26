@@ -7,10 +7,10 @@ import { CtaButton, BottomWaveDivider } from '@/components/landing/ui';
 
 
 const heroHighlights = [
-  'Acesso imediato',
-  'Material em PDF visual e profissional',
-  'Atividades organizadas por objetivo',
-  'Prontas para adaptar à sua realidade',
+  'Acceso inmediato',
+  'Material en PDF visual y profesional',
+  'Actividades organizadas por objetivo',
+  'Listas para adaptar a tu realidad',
 ];
 
 
@@ -20,11 +20,11 @@ export default function HeroSection() {
         {/* Formas decorativas leves (sem blur/animação, não pesam no celular) */}
         <div aria-hidden="true" className="pointer-events-none absolute -left-24 top-32 hidden h-64 w-64 rounded-full bg-sky-200/40 md:block" />
 
-        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-10">
           <div className="mb-6 flex justify-center">
             <Image
               src="/images/logo.webp"
-              alt="Logo Gêniozinho em Ação"
+              alt="Logo Geniecitos en Acción"
               width={84}
               height={70}
               className="h-auto w-[68px] sm:w-[82px]"
@@ -34,12 +34,12 @@ export default function HeroSection() {
 
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="font-display text-[1.45rem] font-black leading-[1.2] tracking-tight text-ink sm:text-2xl md:text-3xl lg:text-[2.4rem]">
-              <span className="text-sky-600 font-black">+1500</span> Atividades Lúdicas e Adaptadas para{' '}
-              <span className="text-sky-600 font-black">Crianças Autistas</span>
+              <span className="text-sky-600 font-black">+1500</span> Actividades Lúdicas y Adaptadas para{' '}
+              <span className="text-sky-600 font-black">Niños con Autismo</span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg">
-              Economize horas de preparo com atividades prontas, validadas por pedagogos e psicólogos, que estimulam o
-              foco, a linguagem, a socialização e o desenvolvimento cognitivo dos seus alunos com TEA.
+              Ahorra horas de preparación con actividades listas, validadas por pedagogos y psicólogos, que estimulan la
+              concentración, el lenguaje, la socialización y el desarrollo cognitivo de tus alumnos e hijos con TEA.
             </p>
           </div>
 
@@ -47,7 +47,7 @@ export default function HeroSection() {
           <div className="relative mx-auto mt-8 max-w-3xl px-2 sm:px-4">
             <Image
               src="/images/hero-activities-kit.webp"
-              alt="Kit Completo +1500 Atividades para Crianças Autistas"
+              alt="Kit Completo +1500 Actividades para Niños con Autismo"
               width={1024}
               height={682}
               priority
@@ -78,11 +78,11 @@ export default function HeroSection() {
           {/* Botão de Chamada para Ação */}
           <div className="mt-6 flex flex-col items-center gap-3.5">
             <CtaButton href="#kit-description" size="lg" pulse>
-              Garantir meu kit com desconto
+              ¡Obtener mi kit con descuento!
             </CtaButton>
             <Image
               src="/images/security-badges-dark.webp"
-              alt="Compra Segura, Privacidade Protegida, Pagamento Seguro"
+              alt="Compra Segura, Privacidad Protegida, Pago Seguro"
               width={280}
               height={42}
               className="h-auto w-52 sm:w-60 object-contain opacity-85"

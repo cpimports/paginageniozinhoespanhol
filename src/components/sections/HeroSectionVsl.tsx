@@ -3,32 +3,8 @@
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect } from 'react';
-
-const VslPlayer = () => {
-  useEffect(() => {
-    const scriptId = 'vturb-player-script-6ad56b45d97f2ee214dc944d';
-    if (!document.getElementById(scriptId)) {
-      const s = document.createElement('script');
-      s.id = scriptId;
-      s.src = 'https://scripts.converteai.net/f304b502-422a-4d15-8f6c-5e42de7baf1b/players/6ad56b45d97f2ee214dc944d/v4/player.js';
-      s.async = true;
-      document.head.appendChild(s);
-    }
-  }, []);
-
-  return (
-    <div
-      dangerouslySetInnerHTML={{
-        __html: `
-          <vturb-smartplayer id="vid-6ad56b45d97f2ee214dc944d" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;">
-            <div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 177.77777777777777% 0 0; z-index: 0; background-color: #0b1120;"></div>
-          </vturb-smartplayer>
-        `,
-      }}
-    />
-  );
-};
+import React from 'react';
+import VslPlayer from '@/components/shared/VslPlayer';
 
 export default function HeroSectionVsl() {
   return (
@@ -60,26 +36,25 @@ export default function HeroSectionVsl() {
         <div className="absolute bottom-[20%] right-[10%] w-0.5 h-0.5 bg-sky-200 rounded-full filter blur-[0.5px] animate-twinkle" style={{ animationDelay: '3.2s' }}></div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 pt-8 sm:pt-12">
         <div className="mb-8 animate-fade-in-medium">
           <Image
             src="/images/logo.webp"
-            alt="Logo Gêniozinho em Ação"
-            data-ai-hint="logo brain lightbulb"
-            width={120}
-            height={101}
-            className="mx-auto"
+            alt="Logo Geniecitos en Acción"
+            width={150}
+            height={100}
+            className="mx-auto h-auto w-auto max-h-[100px]"
             priority
           />
         </div>
         <h1 className="font-merriweather text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white animate-fade-in-medium">
-          <span className="text-yellow-400">+1700</span> Atividades Lúdicas e Adaptadas para <span className="text-yellow-400">Crianças Autistas</span>
+          <span className="text-yellow-400">+1500</span> Actividades Lúdicas y Adaptadas para <span className="text-yellow-400">Niños con Autismo</span>
         </h1>
         <div className="mt-6 max-w-3xl mx-auto text-sm md:text-base text-gray-300 animate-fade-in-slow px-4 sm:px-0 text-center">
-          <p className="font-semibold text-sky-200 text-base md:text-lg">Economize horas de preparo com atividades prontas, validadas por pedagogos e psicólogos, que estimulam o foco, a linguagem, a socialização e o desenvolvimento cognitivo dos seus alunos com TEA.</p>
+          <p className="font-semibold text-sky-200 text-base md:text-lg">Ahorre horas de preparación con actividades listas, validadas por pedagogos y psicólogos, que estimulan la concentración, el lenguaje, la socialización y el desarrollo cognitivo de sus alumnos e hijos con TEA.</p>
         </div>
 
-        <div className="mt-8 max-w-[400px] mx-auto animate-fade-in-slow">
+        <div className="mt-8 max-w-3xl mx-auto animate-fade-in-slow">
           <div className="rounded-lg overflow-hidden shadow-2xl shadow-sky-400/20">
             <VslPlayer />
           </div>
@@ -92,22 +67,22 @@ export default function HeroSectionVsl() {
             className="shadow-lg hover:shadow-xl bg-yellow-400 hover:bg-yellow-500 text-black font-semibold animate-pulse-yellow-cta transition-shadow"
           >
             <a href="#kit-description">
-              GARANTIR MEU KIT COM DESCONTO
+              ¡OBTENER MI KIT CON DESCUENTO!
             </a>
           </Button>
           <p className="mt-2 text-xs text-gray-400 animate-fade-in-slow" style={{ animationDelay: '0.7s' }}>
-            REVISADO POR PEDAGOGOS E PSICÓLOGOS
+            REVISADO POR PEDAGOGOS Y PSICÓLOGOS
           </p>
           <div className="mt-2 animate-fade-in-slow" style={{ animationDelay: '0.8s' }}>
             <Image
-              src="/images/payment-methods.webp"
-              alt="Métodos de pagamento aceitos"
-              data-ai-hint="payment methods"
-              width={250}
-              height={25}
-              className="object-contain"
+              src="/images/security-badges-espanhol.webp"
+              alt="Compra segura, Satisfacción garantizada, Privacidad protegida"
+              data-ai-hint="security badges"
+              width={320}
+              height={100}
+              className="object-contain h-auto max-w-[280px] sm:max-w-[320px]"
               loading="lazy"
-              sizes="250px"
+              sizes="(max-width: 640px) 280px, 320px"
             />
           </div>
         </div>

@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Gêniozinho em Ação - Atividades Educativas para Crianças',
-  description: 'Kit completo de atividades educativas e interativas, prontas para aplicar em casa ou na escola, e transformar a rotina de aprendizado de crianças com estilos únicos de aprendizagem e atenção.',
+  title: 'Geniecitos en Acción - Actividades Educativas para Niños con Autismo',
+  description: 'Kit completo de actividades educativas e interativas, listas para aplicar en casa o en la escuela, transformando la rutina de aprendizaje de niños con autismo (TEA).',
 };
 
 export default function VslLayout({
@@ -12,9 +12,11 @@ export default function VslLayout({
 }) {
   return (
     <>
-      <link rel="preload" href="https://scripts.converteai.net/f304b502-422a-4d15-8f6c-5e42de7baf1b/players/6ad56b45d97f2ee214dc944d/v4/player.js" as="script" />
+      <link rel="preload" href="https://scripts.converteai.net/f304b502-422a-4d15-8f6c-5e42de7baf1b/players/6b076d276b942a563edd7ccd/v4/embed.html" />
+      <script dangerouslySetInnerHTML={{ __html: `!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);` }} />
+      <link rel="preload" href="https://scripts.converteai.net/f304b502-422a-4d15-8f6c-5e42de7baf1b/players/6b076d276b942a563edd7ccd/v4/player.js" as="script" />
       <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script" />
-      <link rel="preload" href="https://cdn.converteai.net/f304b502-422a-4d15-8f6c-5e42de7baf1b/6ad56b304e8a318aa647ed1f/main.m3u8" as="fetch" />
+      <link rel="preload" href="https://cdn.converteai.net/f304b502-422a-4d15-8f6c-5e42de7baf1b/6b076d2097fd30381018927a/main.m3u8" as="fetch" />
       <link rel="dns-prefetch" href="https://cdn.converteai.net" />
       <link rel="dns-prefetch" href="https://scripts.converteai.net" />
       <link rel="dns-prefetch" href="https://images.converteai.net" />

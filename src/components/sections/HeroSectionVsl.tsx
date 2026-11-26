@@ -37,13 +37,13 @@ export default function HeroSectionVsl() {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 pt-8 sm:pt-12">
-        <div className="mb-8 animate-fade-in-medium">
+        <div className="mb-6 animate-fade-in-medium">
           <Image
             src="/images/logo.webp"
             alt="Logo Geniecitos en Acción"
-            width={150}
-            height={100}
-            className="mx-auto h-auto w-auto max-h-[100px]"
+            width={120}
+            height={80}
+            className="mx-auto h-auto w-auto max-h-[75px]"
             priority
           />
         </div>

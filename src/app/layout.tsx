@@ -89,13 +89,13 @@ export default function RootLayout({
         <Toaster />
         <SocialProofNotification />
         {/* Configurado para capturar e persistir UTMs e anexar nos links dos domínios de checkout */}
-        <UTMHandler checkoutDomains={["pay.cakto.com.br", "loja.geniozinhoemacao.com.br"]} />
+        <UTMHandler checkoutDomains={["pay.hotmart.com", "pay.cakto.com.br", "loja.geniozinhoemacao.com.br"]} />
         
         {/* InitiateCheckout Event Script for UTMify - Rastreamento garantido com repasse de UTMs para checkout */}
         <Script id="initiate-checkout-tracker" strategy="afterInteractive">
           {`
             document.addEventListener('click', function(e) {
-              const checkoutButton = e.target && e.target.closest('#btn-comprar, a[href*="pay.cakto.com.br"], a[href*="loja.geniozinhoemacao.com.br"]');
+              const checkoutButton = e.target && e.target.closest('#btn-comprar, a[href*="pay.hotmart.com"], a[href*="pay.cakto.com.br"], a[href*="loja.geniozinhoemacao.com.br"]');
               if (checkoutButton) {
                 e.preventDefault();
 

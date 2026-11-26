@@ -70,7 +70,7 @@ const AnimatedClock = ({ className = 'h-5 w-5' }: { className?: string }) => (
 export default function OfferSection({
   price = '6,90',
   installmentText = '',
-  checkoutUrl = 'https://loja.geniozinhoemacao.com.br/checkout/v4/WbE0rP04SZDO0RPFaY8D',
+  checkoutUrl = 'https://pay.hotmart.com/G108670093O?checkoutMode=10',
 }: OfferSectionProps) {
   return (
     <section id="oferta-especial" className="bg-paper-grid pt-16 md:pt-24 pb-0">

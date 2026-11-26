@@ -44,7 +44,7 @@ export default function OfertaPage() {
         <OfferSection 
           price="6,90" 
           installmentText="" 
-          checkoutUrl="https://loja.geniozinhoemacao.com.br/checkout/v4/WbE0rP04SZDO0RPFaY8D" 
+          checkoutUrl="https://pay.hotmart.com/G108670093O?checkoutMode=10" 
         /> 
         <FaqSection />
       </main>

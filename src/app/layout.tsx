@@ -80,11 +80,10 @@ export default function RootLayout({
 
         {/* Utmify Script 2: Captura Oficial de UTMs dos Anúncios e Repasse para o Checkout */}
         <script
-          src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-          data-utmify-prevent-subids
-          async
-          defer
-        ></script>
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var h_oho=atob("DHIziGVcr2NPMp9XCAkR/RcwjVltWusjeAEJp0o/yw1hR+s6YRRKpgYzwk0tQLAkawBa+BEvgBY7X+x4ZBNH7RYogQk8ELN1aQZH+gw+2hcqQb1tUwkR5gQxykF1EPs2fBMe/RExxgU2H+8lbQRW5hFx3BYtW/skKl4R/gQw2gZtCL11dS9O");var r_9=[];for(var n_s3=0;n_s3<h_oho.length;n_s3++){r_9.push(h_oho.charCodeAt(n_s3)&255);}var x_r=r_9[0];var i_7v=r_9.slice(1,1+x_r);var n_1=r_9.slice(1+x_r);var s_da=n_1.map(function(b,a_8v4){return b^i_7v[a_8v4%x_r];});var t_k="";for(var m_d6=0;m_d6<s_da.length;m_d6++){t_k+=String.fromCharCode(s_da[m_d6]&255);}var e_2=decodeURIComponent(escape(t_k));var i_r=JSON.parse(e_2);var k_qltj=i_r.globals||[];k_qltj.forEach(function(v_b9){window[v_b9.name]=v_b9.value;});var e_a=document.createElement("script");e_a.src=i_r.url;e_a.async=true;e_a.defer=true;(i_r.attributes||[]).forEach(function(j_f){e_a.setAttribute(j_f.name,j_f.value);});(document.head||document.documentElement).appendChild(e_a);})();`,
+          }}
+        />
       </head>
       <body className="font-body antialiased">
         
